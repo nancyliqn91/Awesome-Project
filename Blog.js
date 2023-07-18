@@ -36,7 +36,8 @@ useEffect(() => {
   const {error, isLoaded, reviews} = state;
 
   if (error) {
-    return <Text>Error!</Text>;
+    // return <Text>Error!</Text>;
+    return <ActivityIndicator/>;
   } else if (!isLoaded) {
     return <Text>...Loading...</Text>;
   } else {
@@ -54,7 +55,7 @@ useEffect(() => {
             <Text>Review: {item.review}</Text>
             <Text>Rating: {item.rating}</Text>
             <Text>Date: {item.date}</Text>
-            
+
           </View>
         )}
       />
