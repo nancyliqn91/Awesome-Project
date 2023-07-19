@@ -2,7 +2,7 @@ import React, { useEffect, useReducer} from 'react';
 import blogReducer from './reducers/blog-reducer'
 import { getReviewsFailure, getReviewsSuccess } from './actions/index';
 import { View, Text, ActivityIndicator, FlatList } from 'react-native';
-// Do not use 
+// Do not use ActivityIndicator
 
 const initialState = {
   isLoaded: false,
@@ -36,8 +36,8 @@ useEffect(() => {
   const {error, isLoaded, reviews} = state;
 
   if (error) {
-    // return <Text>Error!</Text>;
-    return <ActivityIndicator/>;
+    return <Text>Error!</Text>;
+    // return <ActivityIndicator/> is not working;
   } else if (!isLoaded) {
     return <Text>...Loading...</Text>;
   } else {
@@ -60,14 +60,6 @@ useEffect(() => {
         )}
       />
       
-        {/* <ul>
-          {reviews.map((item, index) =>
-            <li key={index}>
-              <Text>Destination: {item.destination}</Text>
-              <Text>Country: {item.country}</Text>
-            </li>
-          )}
-        </ul> */}
       </View>
     );
   }
